@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+    font-family: 'Quicksand';
+}
+
+.transactions {
+    font-family: 'Quicksand-Bold';
+    position: relative;
+    padding: 14px;
+    mat-icon {
+        position: absolute;
+        color: #3f51b5;
+    }
+    span {
+        margin-left: 28px;
+        font-size: 18px;
+        color: #d84c7f;
+    }
+}
+
+.font {
+    font-family: 'Quicksand-Semibold';
+}
+
+.card {
+    box-shadow: none;
+}
+
+.mat-card-content {
+    font-family: 'Quicksand';
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.search {
+    width: 100%;
+}
+
+.header-icon {
+    color: #3f51b5;
+}
+
+.filterBox {
+    font-family: 'Quicksand-Bold';
+    color: #dc1868;
+}

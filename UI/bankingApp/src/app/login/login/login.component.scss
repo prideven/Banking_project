@@ -1,0 +1,33 @@
+mat-card {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Quicksand';
+}
+
+mat-form-field {
+    display: block;
+    font-family: 'Quicksand-SemiBold';
+    margin: 10px;
+}
+
+.register {
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: 'Quicksand-SemiBold';
+    color: #3f51b5
+}
+
+.loginHeader {
+    font-family: 'Quicksand-Bold';
+    color: #3f51b5
+}
+
+.fontFamily {
+    font-family: 'Quicksand-Bold';
+    margin: 10px;
+}
+
+.main {
+    padding: 2em;
+}

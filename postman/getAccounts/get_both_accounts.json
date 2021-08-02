@@ -1,0 +1,12 @@
+[
+    {
+        "accountNumber": "4503764312489",
+        "accountType": "Savings",
+        "availableBalance": "100"
+    },
+    {
+        "accountNumber": "4503764312408",
+        "accountType": "Checkings",
+        "availableBalance": "100"
+    }
+]

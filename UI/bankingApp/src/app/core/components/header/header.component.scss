@@ -1,0 +1,34 @@
+$secondary_font: 'Allura';
+.header-font {
+    font-family: $secondary_font !important;
+    font-size: 28px;
+    color: white;
+    margin-left: 4px;
+}
+
+.header-icon {
+    height: 35px;
+    position: relative;
+    top: 10px;
+    border-radius: 50%;
+}
+
+.mr {
+    font-family: 'Quicksand-Bold';
+}
+
+.font {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.remove-underline {
+    cursor: pointer;
+}
+
+
+/* .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+} */

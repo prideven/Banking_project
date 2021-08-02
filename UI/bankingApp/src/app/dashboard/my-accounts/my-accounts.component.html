@@ -1,0 +1,32 @@
+<div class="container">
+    <h1 class="font">My Accounts</h1>
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="flex-center" fxLayoutGap="30px">
+        <mat-card fxFlex="23" fxFlex.lt-md="25" fxFlex.lt-sm="100%" class="card" *ngFor="let acc of accountList">
+            <mat-card-header>
+                <div mat-card-avatar [ngClass]="{'saving-image': acc.accountType=='Savings', 'checking-image': acc.accountType=='Checking'}"></div>
+                <mat-card-title>{{acc.accountType | titlecase}} Account</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div><span class="font">Account Number:</span>&nbsp;{{acc.accountNumber}}</div>
+                <br/>
+                <div><span class="font">Account Balance:</span>&nbsp;$ {{acc.accountBalance}}</div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" class="font" fxFlex=45 (click)="goToTransactions(acc.accountNumber)">
+                <mat-icon>
+                open_in_new
+            </mat-icon>
+             View
+        </button>
+                <button mat-raised-button color="warn" class="font" fxFlex=45 style="width: 50%" (click)="openDialog(acc.accountNumber)">
+                    <mat-icon>
+                        delete
+                    </mat-icon>
+                    Delete</button>
+            </mat-card-actions>
+        </mat-card>
+
+
+    </div>
+
+</div>

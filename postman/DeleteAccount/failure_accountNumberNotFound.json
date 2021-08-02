@@ -1,0 +1,7 @@
+{
+    "Details ": "Invalid Account Number",
+    "ErrorCode": "Http 404 error",
+    "ErrorStatusCode": "404: “The requested resource was not found.”",
+    "Message": "ConditionalCheckFailedException",
+    "Recommendation": "Please enter the right account detials"
+}

@@ -1,0 +1,63 @@
+<div class="main">
+    <mat-card>
+        <mat-card-content>
+            <form [formGroup]="oneTimeTransfer" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
+                <img src="/assets/images/onetime.png" class="withdraw" />
+                <h2 class="loginHeader">One-Time Transfer ({{interIntraType | titlecase}})</h2>
+                <mat-form-field>
+                    <mat-label class="fontFamily">From Account: </mat-label>
+                    <mat-select formControlName="fromAcc">
+                        <mat-option [value]="savingAccountNum" [disabled]=!isSavings>Savings-{{savingAccountNum}}</mat-option>
+                        <mat-option [value]="checkingAccountNum" [disabled]=!isChecking>Checking-{{checkingAccountNum}}</mat-option>
+                    </mat-select>
+
+                </mat-form-field>
+                <!-- <div style="text-align: start;">
+                <div class="fontFamily">Select transfer type: </div>
+                <mat-radio-group aria-label="Select an option" [value]="transferType">
+                    <mat-radio-button class="font" value="internal">Internal(Between your own accounts)</mat-radio-button>
+                    <mat-radio-button class="font" value="external">External(To a different account)</mat-radio-button>
+                </mat-radio-group>
+            </div> -->
+
+                <mat-form-field *ngIf="isInternal">
+                    <mat-label class="fontFamily">To Account: </mat-label>
+                    <mat-select formControlName="toAcc">
+                        <mat-option [value]="savingAccountNum" [disabled]=!isSavings>Savings-{{savingAccountNum}}</mat-option>
+                        <mat-option [value]="checkingAccountNum" [disabled]=!isChecking>Checking-{{checkingAccountNum}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field *ngIf="!isInternal">
+                    <mat-label class="fontFamily">To Account: </mat-label>
+                    <input matInput formControlName="externalAcc" />
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label class="fontFamily">Mode of Transfer: </mat-label>
+                    <mat-select formControlName="modeOfTransaction">
+                        <mat-option value="online">Online</mat-option>
+                        <mat-option value="fees">Fees</mat-option>
+                        <mat-option value="cheque">Cheque</mat-option>
+                        <mat-option value="cash">Cash</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label class="fontFamily">Amount in $:</mat-label>
+                    <input matInput placeholder="Amount" formControlName="amount" type="number" required>
+                    <mat-error>
+                        Please provide valid amount
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label class="fontFamily">Description:</mat-label>
+                    <input matInput placeholder="Description" formControlName="description" required>
+                    <mat-error>
+                        Please provide valid description
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" type="submit" [disabled]="!oneTimeTransfer.valid" class="fontFamily">Submit</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

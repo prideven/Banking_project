@@ -1,0 +1,107 @@
+{
+    "login": {
+        "status": 200,
+        "success": true,
+        "data": {
+            "profile": {
+                "phoneNumber": "+11234567890",
+                "firstName": "Ananth",
+                "lastName": "U",
+                "email": "ananth@gmail.com"
+            },
+            "accessToken": "291874901y4riwhqdkjaw"
+        }
+    },
+    "logout": {
+        "success": true
+    },
+    "signup": {
+        "success": true,
+        "message": "Registered Successfully! Please login to proceed."
+    },
+    "getAccountDetails": {
+        "accountList": [{
+            "accountType": "Savings",
+            "accountNumber": 98756454137,
+            "accountBalance": 7000
+        }],
+        "firstName": "John",
+        "lastName": "Doe",
+        "phone": 989898989,
+        "isAdmin": false,
+        "success": true,
+        "username": "JD"
+    },
+
+    "getTransactions": {
+        "success": true,
+        "data": {
+            "transactions": [{
+                    "Amount": 250,
+                    "availableBalance": "1500",
+                    "DateTime": "Thu, 08 May 2021 17:22:30 +0000",
+                    "Description": "\"Transferring amount 250 for medical needs\"",
+                    "FromAcc": "3917904879011",
+                    "modeOfTransaction": "cash",
+                    "ToAcc": "4503764312489",
+                    "transactionType": "cheque"
+                },
+                {
+                    "Amount": 200,
+                    "availableBalance": "4500",
+                    "DateTime": "Fri, 10 Apr 2021 17:22:30 +0000",
+                    "Description": "\"Transferring amount 200 for travel\"",
+                    "FromAcc": "3917904879011",
+                    "modeOfTransaction": "cash",
+                    "ToAcc": "4503764312677",
+                    "transactionType": "credit"
+                }
+            ]
+        }
+    },
+    "deleteAccount": {
+        "success": true,
+        "data": {
+            "message": "Account Delete Successfully!"
+        }
+    },
+
+    "addAccount": {
+        "success": true,
+        "data": {
+            "message": "Account Added Successfully!"
+        }
+    },
+    "withdrawDeposit": {
+        "success": true,
+        "data": {
+            "message": "Money deposited/withdrawn successfully!"
+        }
+    },
+    "admin": {
+        "success": true,
+        "data": [{
+            "transactions": [{
+                    "amount": 250,
+                    "availableBalance": "1500",
+                    "dateTime": "Thu, 08 May 2021 17:22:30 +0000",
+                    "description": "\"Transferring amount 250 for medical needs\"",
+                    "fromAcc": "3917904879011",
+                    "modeOfTransaction": "cash",
+                    "toAcc": "4503764312489",
+                    "transactionType": "cheque"
+                },
+                {
+                    "amount": 200,
+                    "availableBalance": "4500",
+                    "dateTime": "Fri, 10 Apr 2021 17:22:30 +0000",
+                    "description": "\"Transferring amount 200 for travel\"",
+                    "fromAcc": "3917904879011",
+                    "modeOfTransaction": "cash",
+                    "toAcc": "4503764312677",
+                    "transactionType": "credit"
+                }
+            ]
+        }]
+    }
+}

@@ -1,0 +1,28 @@
+<div class="main">
+    <mat-card>
+        <mat-card-content>
+            <form [formGroup]="depWithForm" #formDirective="ngForm" (ngSubmit)="onSubmit(formDirective)">
+                <img [src]='"/assets/images/"+serviceType+".png"' [ngClass]="{'withdraw': serviceType ==='withdraw'}" />
+                <h2 class="loginHeader" *ngIf="serviceType ==='deposit'">Deposit</h2>
+                <h2 class="loginHeader" *ngIf="serviceType ==='withdraw'">Withdrawal</h2>
+
+                <mat-form-field>
+                    <mat-label class="font">Select Account Type: </mat-label>
+                    <mat-select formControlName="accountNum">
+                        <mat-option [value]="savingAccountNum" [disabled]=!isSavings>Savings-{{savingAccountNum}}</mat-option>
+                        <mat-option [value]="checkingAccountNum" [disabled]=!isChecking>Checking-{{checkingAccountNum}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Amount in $:</mat-label>
+                    <input matInput placeholder="Amount" formControlName="amount" type="number" required>
+                    <mat-error>
+                        Please provide valid amount
+                    </mat-error>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary" type="submit" [disabled]="!depWithForm.valid" class="fontFamily">{{serviceType|titlecase}}</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

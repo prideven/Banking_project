@@ -1,0 +1,3 @@
+http://127.0.0.1:5000/ananth/getAccounts
+http://127.0.0.1:5000/Reetu/getAccounts
+http://127.0.0.1:5000/priyanka/getAccounts

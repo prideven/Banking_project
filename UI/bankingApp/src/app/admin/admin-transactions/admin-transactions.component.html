@@ -1,0 +1,127 @@
+<div>
+    <div class="transactions">
+        <mat-icon>
+            view_headline</mat-icon>
+        <span>Transactions:</span>
+    </div>
+
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px" style="margin:12px">
+        <div fxFlex="0 1 calc(50% - 40px)" fxFlex.lt-sm="100%">
+            <mat-form-field class="search font">
+                <input matInput placeholder="Search transactions by description" [(ngModel)]="searchKey" (keyup.enter)="searchTransactions()" type="text" name="search" (keyup)="keyupFilter()">
+                <span matSuffix fxHide.lt-md (click)="searchTransactions()">
+<mat-icon class="cursor-pointer">search</mat-icon>
+</span>
+            </mat-form-field>
+        </div>
+
+        <div fxFlex="0 1 calc(50% - 40px)" fxFlex.lt-sm="100%">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="font">
+                        <i class="material-icons header-icon ">filter_alt</i><span class="filterBox">Filter Transactions</span>
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <!--  <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+                    <div fxFlex="0 1 calc(50% - 40px)" fxFlex.lt-sm="100%">
+                        <mat-form-field appearance="fill" class="search">
+                            <mat-label class="font">By Transcation Type: </mat-label>
+                            <mat-select [formControl]="transactionType">
+                                <mat-option value="Credit">Credit</mat-option>
+                                <mat-option value="Debit">Debit</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="0 1 calc(50% - 40px)" fxFlex.lt-sm="100%">
+                        <mat-form-field appearance="fill" class="search">
+                            <mat-label class="font">By Transcation Mode: </mat-label>
+                            <mat-select [formControl]="transactionMode">
+                                <mat-option value="Cash">Cash</mat-option>
+                                <mat-option value="Cheque">Cheque</mat-option>
+                                <mat-option value="Fees">Fees</mat-option>
+                                <mat-option value="Online">Online</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div> -->
+                <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutGap="20px">
+                    <div fxFlex="90">
+                        <mat-form-field appearance="fill" style="width:100%">
+                            <mat-label>Enter a date range</mat-label>
+                            <mat-date-range-input [formGroup]="range" [rangePicker]="picker" [min]="minDate" [max]="maxDate">
+                                <input matStartDate formControlName="start" placeholder="Start date">
+                                <input matEndDate formControlName="end" placeholder="End date">
+                            </mat-date-range-input>
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-date-range-picker #picker></mat-date-range-picker>
+
+                            <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+                            <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="10px">
+                    <button fxFlex="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%" mat-raised-button color="primary" class="font" (click)="applyFilters()">Apply</button>
+                    <button fxFlex="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%" mat-raised-button color="warn" class="font" (click)="clearFilters()">Clear</button>
+                </div>
+            </mat-expansion-panel>
+        </div>
+    </div>
+
+    <div *ngIf="dataSource.data.length === 0">
+        <h4 fxFlex="50%" class="font" style="padding-top: 14px; padding-left: 10px; font-size: 16px; ">No transactions.</h4>
+    </div>
+    <table *ngIf="dataSource.data.length > 0" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+        <ng-container matColumnDef="transactionID">
+            <th mat-header-cell *matHeaderCellDef> Transaction ID</th>
+            <td mat-cell *matCellDef="let element"> {{element.transactionID}}</td>
+        </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description</th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="dateTime">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.dateTime | date: 'medium'}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="fromAcc">
+            <th mat-header-cell *matHeaderCellDef>Source </th>
+            <td mat-cell *matCellDef="let element"> {{element.fromAcc}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="toAcc">
+            <th mat-header-cell *matHeaderCellDef> Recepient </th>
+            <td mat-cell *matCellDef="let element"> {{element.toAcc}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="amount">
+            <th mat-header-cell *matHeaderCellDef> Amount</th>
+            <td mat-cell *matCellDef="let element"> $.{{element.amount}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="modeOfTransaction">
+            <th mat-header-cell *matHeaderCellDef> Mode</th>
+            <td mat-cell *matCellDef="let element"> {{element.modeOfTransaction | titlecase}}</td>
+        </ng-container>
+        <ng-container matColumnDef="transactionType">
+            <th mat-header-cell *matHeaderCellDef> Transaction Type</th>
+            <td mat-cell *matCellDef="let element"> {{element.transactionType | titlecase}}</td>
+        </ng-container>
+
+        <!-- <ng-container matColumnDef="availableBalance">
+            <th mat-header-cell *matHeaderCellDef> Balance</th>
+            <td mat-cell *matCellDef="let element"> {{element.availableBalance}}</td>
+        </ng-container> -->
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

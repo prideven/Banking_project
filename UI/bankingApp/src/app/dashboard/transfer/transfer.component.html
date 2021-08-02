@@ -1,0 +1,99 @@
+<div class="container">
+    <h1 class="font">Transfer</h1>
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="flex-center" fxLayoutGap="30px" *ngIf="showInternalEx">
+        <mat-card fxFlex="23" fxFlex.lt-md="25" fxFlex.lt-sm="100%" class="card">
+            <mat-card-header>
+                <div mat-card-avatar class="internal"></div>
+                <mat-card-title> Internal Transfer</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="font">Transfer money betweeen your personal accounts.</div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" class="font" fxFlex=100 (click)="setIntraInter('internal')">
+                <mat-icon fontSet="material-icons-outlined" >
+                    check_box
+            </mat-icon>
+             Select
+        </button>
+
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card fxFlex="23" fxFlex.lt-md="25" fxFlex.lt-sm="100%" class="card">
+            <mat-card-header>
+                <div mat-card-avatar class="external"></div>
+                <mat-card-title> External Transfer</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="font">Transfer money to an external account.</div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" class="font" fxFlex=100 (click)="setIntraInter('external')">
+                <mat-icon fontSet="material-icons-outlined" >
+                        check_box
+            </mat-icon>
+            Select
+        </button>
+
+            </mat-card-actions>
+        </mat-card>
+
+
+    </div>
+    <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="flex-center" fxLayoutGap="30px" *ngIf="!showInternalEx">
+        <mat-card fxFlex="23" fxFlex.lt-md="25" fxFlex.lt-sm="100%" class="card">
+            <mat-card-header>
+                <div mat-card-avatar class="oneTime"></div>
+                <mat-card-title> One-Time Payment</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="font">Transfer money to <span *ngIf="intraInter==='internal'">your personal </span> <span *ngIf="intraInter==='external'">external </span>account now.</div>
+
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" class="font" fxFlex=100 (click)="goToPayment('oneTime')">
+                <mat-icon>
+                open_in_new
+            </mat-icon>
+             Transfer
+        </button>
+
+                <button mat-raised-button color="warn" class="font" fxFlex=100 (click)="goBack()">
+            <mat-icon>
+            arrow_back
+        </mat-icon>
+         Back
+    </button>
+
+            </mat-card-actions>
+        </mat-card>
+
+        <mat-card fxFlex="23" fxFlex.lt-md="25" fxFlex.lt-sm="100%" class="card">
+            <mat-card-header>
+                <div mat-card-avatar class="recurring"></div>
+                <mat-card-title> Recurring Payment</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="font">Set up recurring payment option to <span *ngIf="intraInter==='internal'">your personal </span> <span *ngIf="intraInter==='external'">external </span>account.</div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" class="font" fxFlex=100 (click)="goToPayment('recurring')">
+                <mat-icon>
+                open_in_new
+            </mat-icon>
+             Transfer
+        </button>
+                <button mat-raised-button color="warn" class="font" fxFlex=100 (click)="goBack()">
+            <mat-icon>
+            arrow_back
+        </mat-icon>
+         Back
+    </button>
+            </mat-card-actions>
+        </mat-card>
+
+
+    </div>
+
+</div>

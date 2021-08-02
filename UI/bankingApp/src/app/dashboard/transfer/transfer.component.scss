@@ -1,0 +1,48 @@
+.oneTime {
+    background-image: url('/assets/images/onetime.png');
+    background-size: cover;
+    border: 2px solid #3f51b5;
+}
+
+.recurring {
+    background-image: url('/assets/images/recurring.png');
+    background-size: cover;
+    border: 2px solid #3f51b5;
+}
+
+.external {
+    background-image: url('/assets/images/external.png');
+    background-size: cover;
+    border: 2px solid #3f51b5;
+}
+
+.internal {
+    background-image: url('/assets/images/internal.png');
+    background-size: cover;
+    border: 2px solid #3f51b5;
+}
+
+.mat-card-title {
+    margin-top: 10px;
+    font-family: 'Quicksand-Bold';
+    color: #dc1868;
+}
+
+.container {
+    padding: 20px;
+    font-family: 'Quicksand-Semibold';
+}
+
+.font {
+    font-family: 'Quicksand-Semibold';
+}
+
+mat-card-content {
+    font-family: 'Quicksand';
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+h1 {
+    font-family: 'Quicksand-Bold';
+}

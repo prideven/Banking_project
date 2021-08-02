@@ -1,0 +1,58 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+@import 'assets/scss/modules/_fonts.scss';
+// Plus imports for other components in your app.
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$bankingApp-primary: mat-palette($mat-indigo, 500);
+$bankingApp-accent: mat-palette($mat-yellow, A700, A100, A400);
+// The warn palette is optional (defaults to red).
+$bankingApp-warn: mat-palette($mat-red);
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$bankingApp-theme: mat-light-theme(( color: ( primary: $bankingApp-primary, accent: $bankingApp-accent, warn: $bankingApp-warn, )));
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($bankingApp-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+// .my-alternate-theme {
+//   $my-alternate-primary: mat-palette($mat-red);
+//   $my-alternate-accent: mat-palette($mat-green, 400);
+//   $my-alternate-warn: mat-palette($mat-grey);
+//   $my-alternate-theme: mat-light-theme($my-alternate-primary, $my-alternate-accent, $my-alternate-warn);
+//   @include angular-material-theme($my-alternate-theme);
+// }
+html,
+body {
+    height: 100%;
+}
+
+// primary font
+$primary_font: 'Quicksand';
+// font-weight
+$thin:100;
+$light:300;
+$regular:400;
+$bold:700;
+$black:900;
+// Font size
+$font-xs:12px;
+$font-sm: 14px;
+$primary-fs: 16px;
+$font-md: 18px;
+$font-lg: 20px;
+body {
+    margin: 0;
+    font-family: $primary_font;
+    font-size: $primary-fs;
+    font-weight: $regular;
+}

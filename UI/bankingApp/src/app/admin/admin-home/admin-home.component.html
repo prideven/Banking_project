@@ -1,0 +1,46 @@
+<div class=" fxFlex">
+    <!--  <div class="container">
+        <img src="assets/images/background1.jpg" alt="Snow" style="width:100%; height:700px;" class="imgc">
+        <div class="top-left">
+            <div class="fontAllura">Welcome to Goliath National Bank ,</div>
+            <br/>
+            <div class="fontQuick">Changing lives, one member at a time!</div>
+        </div>
+    </div> -->
+    <div class="container home">
+        <div class="font">
+            <span>Admin Dashboard</span>
+        </div>
+        <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="flex-center" fxLayoutGap="30px">
+            <div fxFlex="23" fxFlex.lt-md="25" fxFlex.lt-sm="100%" class="card">
+                <button mat-button [routerLink]="['transactions']">
+                    <mat-icon class="icons">list_alt</mat-icon>
+                    <h2 class="fontQuick" style="text-align: center; margin-top: 152px;">Transactions</h2>
+                </button>
+            </div>
+            <div fxFlex="23" fxFlex.lt-md="25" fxFlex.lt-sm="100%" class="card">
+                <button mat-button [routerLink]="['fees']">
+                    <mat-icon fontSet="material-icons-outlined" class="icons">payment</mat-icon>
+                    <h2 class="fontQuick" style="text-align: center; margin-top: 152px;">Charge fees</h2>
+                </button>
+            </div>
+
+            <div fxFlex="23" fxFlex.lt-md="25" fxFlex.lt-sm="100%" class="card">
+                <button mat-button [routerLink]="['refund']">
+                    <mat-icon fontSet="material-icons-outlined" class="icons">assignment_return</mat-icon>
+                    <h2 class="fontQuick" style="text-align: center; margin-top: 152px;">Refund</h2>
+                </button>
+            </div>
+
+            <div fxFlex="23" fxFlex.lt-md="25" fxFlex.lt-sm="100%" class="card">
+                <button mat-button [routerLink]="['add-account']">
+                    <mat-icon class="icons">person_add</mat-icon>
+                    <h2 class="fontQuick" style="text-align: center; margin-top: 152px;">Add Account</h2>
+                </button>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>

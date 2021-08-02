@@ -1,0 +1,45 @@
+mat-card {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: 'Quicksand';
+}
+
+mat-form-field {
+    display: block;
+    font-family: 'Quicksand-SemiBold';
+    margin: 10px;
+}
+
+.register {
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: 'Quicksand-SemiBold';
+    color: #3f51b5
+}
+
+.loginHeader {
+    font-family: 'Quicksand-Bold';
+    color: #dc1868;
+}
+
+.fontFamily {
+    font-family: 'Quicksand-Bold';
+}
+
+.withdraw {
+    border-radius: 50%;
+    border: 4px solid #a09999;
+}
+
+.font {
+    font-family: 'Quicksand';
+}
+
+mat-radio-button {
+    margin: 4px
+}
+
+.main {
+    padding: 2em;
+}
